@@ -10,7 +10,7 @@ const Print = require('../models/print.js');
 router.get('/seed', (req,res)=>{
     Print.collection.drop();
     Print.create([
-        {name: "Tempted Fishy", price: 15, imgSrc: "tempted-fishy.png"},
+        {name: "Tempted Fishy", price: 15, imgSrc: "../public/pics/tempted-fishy.png"},
         {name: "Tired Doggy", price: 15, imgSrc: "tired-doggy.png"},
         {name: "Sorry It Was Boring", price: 15, imgSrc: "sorry-it-was-boring.png"},
         {name: "Wake Up You Little Shits", price: 15, imgSrc: "wake-up-you-little-shits.png"},
