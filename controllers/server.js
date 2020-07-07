@@ -5,7 +5,7 @@ const express = require('express');
 const printController = require('./printController.js');
 const cartController = require('./cartController.js');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // middleware
 app.use(express.static("public"));
@@ -16,7 +16,7 @@ app.use(methodOverride('_method'));
 
 // server setup
 db = mongoose.connection;
-const mongoURI = 'mongodb://localhost:27017/spiritual_cardboard';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/spiritual_cardboard';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => {
     console.log('The connection with mongod is established')
 });
