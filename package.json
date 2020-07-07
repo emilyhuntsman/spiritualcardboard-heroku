@@ -7,6 +7,7 @@
   "description": "",
   "main": "controllers/server.js",
   "scripts": {
+    "start": "node controllers/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
