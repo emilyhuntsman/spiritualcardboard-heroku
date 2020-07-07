@@ -1,21 +1,16 @@
 // dependencies
-const express = require('express');
-const app = express();
-app.use(express.static("public"));
-
-// const Product = require('../models/product.js');
-// const User = require('../models/user.js');
-const mongoose = require('mongoose');
-//const productSeed = require('../models/seed.js');
 const methodOverride = require('method-override');
-
-const port = 3000;
+const mongoose = require('mongoose');
+const express = require('express');
 const printController = require('./printController.js');
-app.use('/prints', printController);
 const cartController = require('./cartController.js');
-app.use('/cart',cartController);
+const app = express();
+const port = 3000;
 
 // middleware
+app.use(express.static("public"));
+app.use('/prints', printController);
+app.use('/cart',cartController);
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
@@ -29,14 +24,16 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
 db.on('connected', () => console.log('mongo connected: ', mongoURI))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
+// base routes
 app.get('/', (req,res) => {
     res.render('index.ejs');
 });
 
 app.get('/widgets', (req,res) => {
-    res.send('widget!!');
+    res.render('sketch.ejs');
 });
 
+// listening on 3000
 app.listen(port, () => {
     console.log("listening");
 });
