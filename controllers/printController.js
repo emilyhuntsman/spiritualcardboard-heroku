@@ -13,15 +13,15 @@ router.get('/seed', (req,res)=>{
         {name: "Tempted Fishy", price: 15, imgSrc: "/pics/tempted-fishy.png"},
         {name: "Tired Doggy", price: 15, imgSrc: "/pics/tired-doggy.png"},
         {name: "Sorry It Was Boring", price: 15, imgSrc: "/pics/sorry-it-was-boring.png"},
-        {name: "Wake Up You Little Shits", price: 15, imgSrc: "../public/pics/wake-up-you-little-shits.png"},
-        {name: "Life of a Fish", price: 15,imgSrc: "../public/pics/life-of-a-fish.png"},
-        {name: "It's Nice to Be Invited", price: 15, imgSrc: "../public/pics/its-nice-to-be-invited.png"},
-        {name: "Smoking Earth", price: 15,imgSrc: "../public/pics/smoking-earth.png"},
-        {name: "I Was Pollinated Today", price: 15, imgSrc: "../public/pics/i-was-pollinated-today.png"},
-        {name: "Don't Tell Me Your Name", price: 15, imgSrc: "../public/pics/dont-tell-me-your-name.png"},
-        {name: "You Get Me Through", price: 15, imgSrc: "../public/pics/you-get-me-through.png"},
-        {name: "Things to Invent", price: 15, imgSrc: "../public/pics/things-to-invent.png"},
-        {name: "These Are MY Hands", price: 15, imgSrc: "../public/pics/these-are-my-hands.png"}
+        {name: "Wake Up You Little Shits", price: 15, imgSrc: "/pics/wake-up-you-little-shits.png"},
+        {name: "Life of a Fish", price: 15,imgSrc: "/pics/life-of-a-fish.png"},
+        {name: "It's Nice to Be Invited", price: 15, imgSrc: "/pics/its-nice-to-be-invited.png"},
+        {name: "Smoking Earth", price: 15,imgSrc: "/pics/smoking-earth.png"},
+        {name: "I Was Pollinated Today", price: 15, imgSrc: "/pics/i-was-pollinated-today.png"},
+        {name: "Don't Tell Me Your Name", price: 15, imgSrc: "/pics/dont-tell-me-your-name.png"},
+        {name: "You Get Me Through", price: 15, imgSrc: "/pics/you-get-me-through.png"},
+        {name: "Things to Invent", price: 15, imgSrc: "/pics/things-to-invent.png"},
+        {name: "These Are MY Hands", price: 15, imgSrc: "/pics/these-are-my-hands.png"}
     ], (err, data)=>{
         res.redirect('/prints');
     })
