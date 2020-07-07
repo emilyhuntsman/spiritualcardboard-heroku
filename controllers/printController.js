@@ -10,9 +10,9 @@ const Print = require('../models/print.js');
 router.get('/seed', (req,res)=>{
     Print.collection.drop();
     Print.create([
-        {name: "Tempted Fishy", price: 15, imgSrc: "../public/pics/tempted-fishy.png"},
-        {name: "Tired Doggy", price: 15, imgSrc: "../public/pics/tired-doggy.png"},
-        {name: "Sorry It Was Boring", price: 15, imgSrc: "../public/pics/sorry-it-was-boring.png"},
+        {name: "Tempted Fishy", price: 15, imgSrc: "/pics/tempted-fishy.png"},
+        {name: "Tired Doggy", price: 15, imgSrc: "/pics/tired-doggy.png"},
+        {name: "Sorry It Was Boring", price: 15, imgSrc: "/pics/sorry-it-was-boring.png"},
         {name: "Wake Up You Little Shits", price: 15, imgSrc: "../public/pics/wake-up-you-little-shits.png"},
         {name: "Life of a Fish", price: 15,imgSrc: "../public/pics/life-of-a-fish.png"},
         {name: "It's Nice to Be Invited", price: 15, imgSrc: "../public/pics/its-nice-to-be-invited.png"},
