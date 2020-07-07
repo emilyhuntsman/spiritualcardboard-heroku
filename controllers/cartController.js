@@ -1,24 +1,34 @@
 const express = require('express');
 const router = express.Router();
 const Cart = require('../models/cart.js');
+const Print = require('../models/print.js');
 
 //////////////////////////////////////////////////////////////////////////////////
 // routes
 //////////////////////////////////////////////////////////////////////////////////
 
 // empties cart
+// not working, ask john, makes it so you can't edit the cart
 router.get('/seed', (req,res)=>{
     Cart.collection.drop();
+    Cart.create({idArray: []});
 });
 
 // display cart
 router.get('/', (req,res) => {
-    res.send("cart display");
-    // Product.find({}, (err,prods) => {
-    //     res.render('cart.ejs', {
-    //         products : prods
+    // Cart.find({}, (err,cart) => {
+    //     let printList = [];
+    //     for (let i = 0; i < cart.idArray.length; i++){
+    //         Print.findOne({_id: cart.idArray[0]},(err,idMatch) => {
+    //             printList.push(idMatch);
+    //         });
+    //     }
+    //     console.log(printList);
+    //     res.render('checkout.ejs', {
+    //         prints : printList
     //     });
-    // })
+    // });
+    res.render('checkout.ejs');
 });
 
 // create (add to cart)

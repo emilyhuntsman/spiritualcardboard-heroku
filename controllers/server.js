@@ -1,6 +1,7 @@
 // dependencies
 const express = require('express');
 const app = express();
+app.use(express.static("public"));
 
 // const Product = require('../models/product.js');
 // const User = require('../models/user.js');
@@ -27,6 +28,14 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, us
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
 db.on('connected', () => console.log('mongo connected: ', mongoURI))
 db.on('disconnected', () => console.log('mongo disconnected'))
+
+app.get('/', (req,res) => {
+    res.render('index.ejs');
+});
+
+app.get('/widgets', (req,res) => {
+    res.send('widget!!');
+});
 
 app.listen(port, () => {
     console.log("listening");
