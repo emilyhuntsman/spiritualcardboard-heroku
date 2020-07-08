@@ -7,9 +7,11 @@ const Print = require('../models/print.js');
 // routes
 //////////////////////////////////////////////////////////////////////////////////
 
-
 // display cart
 router.get('/', (req,res) => {
+    Cart.create([{idArray: []} ], (err, data)=>{
+        res.redirect('/prints');
+    })
     Cart.findOne({}).populate('idArray').then( (found) => {
         res.render('checkout.ejs', {
             cart : found.idArray
