@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema; 
 
 const cartSchema = new Schema({
-    idArray: [{type: Schema.Types.ObjectId}],
+    idArray: [{type: Schema.Types.ObjectId, ref: 'Print'}],
     user: {type: String},
     address: {type: String},
 }, { timestamps: true });

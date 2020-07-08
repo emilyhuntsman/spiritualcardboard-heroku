@@ -31,46 +31,29 @@
             <div id="yourCart">
                 <h3 style="padding-bottom: 10px">Cart</h3>
                 <ul class="list-group">
-                    <li class="list-group-item justify-content-between d-flex">
-                        <div class="col" style="padding-top: 25px">
-                            <h6>It's Nice to be Invited</h6>
-                            <div class="text-muted">$15</div>
-                        </div>
-                        <div class="row">
-                            <img src="../pics/its-nice-to-be-invited.png" style="height: 110px; padding-right: 12px">
-                            <button type="button" class="close" style="padding-right: 7px">&times;</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item justify-content-between d-flex">
-                        <div class="col" style="padding-top: 25px">
-                            <h6>Tempted Fishy</h6>
-                            <div class="text-muted">$15</div>
-                        </div>
-                        <div class="row">
-                            <img src="../pics/tempted-fishy.png" style="height: 110px; padding-right: 12px">
-                            <button type="button" class="close" style="padding-right: 7px">&times;</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item justify-content-between d-flex">
-                        <div class="col" style="padding-top: 25px">
-                            <h6>These are MY Hands?</h6>
-                            <div class="text-muted">$15</div>
-                        </div>
-                        <div class="row">
-                            <img src="../pics/these-are-my-hands.png" style="height: 110px; padding-right: 12px">
-                            <button type="button" class="close" style="padding-right: 7px">&times;</button>
-                        </div>
-                    </li>
+                    <% for (let i = 0; i < cart.length; i++) { %>
+                        <li class="list-group-item justify-content-between d-flex">
+                            <div class="col" style="padding-top: 25px">
+                                <h6><%=cart[i].name%></h6>
+                                <div class="text-muted">$<%=cart[i].price%></div>
+                            </div>
+                            <div class="row">
+                                <img src="<%=cart[i].imgSrc%>" style="height: 110px; padding-right: 12px">
+                                <button type="button" class="close" style="padding-right: 7px" onclick="location.href='/cart/remove/<%=cart[i].id%>'">&times;</button>
+                            </div>
+                        </li>
+                    <% } %>
                     <li class="list-group-item justify-content-between d-flex">
                         <div class="col" style="padding-top: 10px">
                             <h6>Total (USD)</h6>
                         </div>
-                        <div style="padding-top: 10px; padding-right: 39px;"><strong>$45</strong></div>
+                        <div style="padding-top: 10px; padding-right: 39px;"><strong>$<%=(15)*(cart.length)%></strong></div>
                     </li>
                 </ul>
             </div>
         </div>
         <div>
+            <button class="btn btn-outline-primary mt-4 mb-3 ml-3" onclick="location.href='/prints/'">back to prints</button>
             <button class="btn btn-outline-primary mt-4 mb-3 ml-3">proceed to payment</button>
         </div>
         <hr style="margin-top: 40px;">

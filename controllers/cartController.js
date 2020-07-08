@@ -7,46 +7,25 @@ const Print = require('../models/print.js');
 // routes
 //////////////////////////////////////////////////////////////////////////////////
 
-// empties cart
-// not working, ask john, makes it so you can't edit the cart
-router.get('/seed', (req,res)=>{
-    Cart.collection.drop();
-    Cart.create({idArray: []});
-});
 
 // display cart
 router.get('/', (req,res) => {
-    Cart.findOne({}).then( (foundCart) => {
-        let toRender = [];
-        for (let i = 0; i < foundCart.idArray.length; i++) {
-            Print.findById(foundCart.idArray[i],(err,inCart) => {
-                console.log(inCart);
-                toRender.push(inCart);
-            });
-        }
-        console.log(toRender);
-        res.render('checkout.ejs', {});
+    Cart.findOne({}).populate('idArray').then( (found) => {
+        res.render('checkout.ejs', {
+            cart : found.idArray
+        });
     });
 });
 
-// create (add to cart)
-router.put('/', (req,res) => {
-    // Print.create(req.body, (err,prod) => {
-    // });
-    res.redirect('/cart/');
-});
 
-// // can't get the query to remove from shopping cart to work..
+// delete item from cart
 router.get('/remove/:id', (req,res) => {
-    Cart.findOneAndUpdate({},{$push: { idArray : req.params.id}}, {new: true}, (err,cart) => {
-        for (let i=0; i< cart.idArray.length; i++){
-            console.log(cart.idArray[i]);
-        }
-        res.redirect('/');
+    Cart.findOneAndUpdate({},{$pull: { idArray : req.params.id}}, {new: true}, (err,cart) => {
+        res.redirect('/cart/');
     });
 });
 
-// // can't get the query to remove from shopping cart to work..
+// add item to cart
 router.get('/add/:id', (req,res) => {
     Cart.findOneAndUpdate({},{$push: { idArray : req.params.id}}, {new: true}, (err,cart) => {
         res.redirect('/prints/'+req.params.id);
