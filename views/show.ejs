@@ -31,7 +31,7 @@
             <h3 style="font-weight: normal;"><%=print.name%></h3>
             <h4 style="font-weight: normal;">$<%=print.price%></h4>
             <button type="button" class="btn btn-outline-secondary" onclick="location.href = '/prints/'">back</button>
-            <button type="button" class="btn btn-outline-secondary">add to cart</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="location.href='/cart/add/<%=print.id%>'">add to cart</button>
         </div>
     </div>
     <hr>

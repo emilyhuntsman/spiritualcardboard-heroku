@@ -16,19 +16,17 @@ router.get('/seed', (req,res)=>{
 
 // display cart
 router.get('/', (req,res) => {
-    // Cart.find({}, (err,cart) => {
-    //     let printList = [];
-    //     for (let i = 0; i < cart.idArray.length; i++){
-    //         Print.findOne({_id: cart.idArray[0]},(err,idMatch) => {
-    //             printList.push(idMatch);
-    //         });
-    //     }
-    //     console.log(printList);
-    //     res.render('checkout.ejs', {
-    //         prints : printList
-    //     });
-    // });
-    res.render('checkout.ejs');
+    Cart.findOne({}).then( (foundCart) => {
+        let toRender = [];
+        for (let i = 0; i < foundCart.idArray.length; i++) {
+            Print.findById(foundCart.idArray[i],(err,inCart) => {
+                console.log(inCart);
+                toRender.push(inCart);
+            });
+        }
+        console.log(toRender);
+        res.render('checkout.ejs', {});
+    });
 });
 
 // create (add to cart)
@@ -40,12 +38,18 @@ router.put('/', (req,res) => {
 
 // // can't get the query to remove from shopping cart to work..
 router.get('/remove/:id', (req,res) => {
-    Cart.findOneAndUpdate({},{$pull: { idArray : {$elemMatch : {_id : req.params.id}}}}, {new: true}, (err,cart) => {
-        console.log("deleting.. ");
+    Cart.findOneAndUpdate({},{$push: { idArray : req.params.id}}, {new: true}, (err,cart) => {
         for (let i=0; i< cart.idArray.length; i++){
             console.log(cart.idArray[i]);
         }
         res.redirect('/');
+    });
+});
+
+// // can't get the query to remove from shopping cart to work..
+router.get('/add/:id', (req,res) => {
+    Cart.findOneAndUpdate({},{$push: { idArray : req.params.id}}, {new: true}, (err,cart) => {
+        res.redirect('/prints/'+req.params.id);
     });
 });
 
