@@ -18,7 +18,9 @@
             <li class="ml-auto dropdown" style="width: 115px; margin-right: 20px">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="cartButton" data-toggle="dropdown"><img src="/pics/cart.svg" id="cart-icon" style="width: 23%;"> cart</button>
                 <div class="dropdown-menu">
-                    <div class="dropdown-item-text">cart 1</div>
+                    <% for (let i = 0; i < cart.length; i++) { %>
+                        <div class="dropdown-item-text"><%=cart[i].name%></div>
+                    <% } %>
                     <button class="btn btn-secondary dropdown-item" type="button" id="cartCheckout" onclick="location.href='/cart/'">checkout</button>
                 </div>
             </li>

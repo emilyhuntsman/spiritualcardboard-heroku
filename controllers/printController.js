@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Print = require('../models/print.js');
+const Cart = require('../models/cart.js');
 
 //////////////////////////////////////////////////////////////////////////////////
 // routes
@@ -30,10 +31,13 @@ router.get('/seed', (req,res)=>{
 // display all prints
 router.get('/', (req,res) => {
     Print.find({}, (err,prts) => {
-        res.render('prints.ejs', {
-            prints : prts
+        Cart.findOne({}).populate('idArray').then( (found) => {
+            res.render('prints.ejs', {
+                cart : found.idArray,
+                prints : prts
+            });
         });
-    })
+    });
 });
 
 // create
