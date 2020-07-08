@@ -26,6 +26,8 @@
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.21",
+    "responsive-sketchpad": "^1.1.1",
+    "simple-drawing-board": "^3.1.1",
     "sketchpad": "^0.1.0"
   }
 }
