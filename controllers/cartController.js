@@ -1,22 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const Cart = require('../models/cart.js');
-const Print = require('../models/print.js');
 
 //////////////////////////////////////////////////////////////////////////////////
 // routes
 //////////////////////////////////////////////////////////////////////////////////
 
-// Cart.create([{idArray: []} ], (err, data)=>{
-//     res.redirect('/prints');
-// })
-// create seed?
+
+router.get('/seed', (req,res)=>{
+    Cart.collection.drop();
+    Cart.create([
+        {idArray: []},
+    ], (err, data)=>{
+        res.redirect('/cart');
+    })
+});
 
 // display cart
 router.get('/', (req,res) => {
     Cart.findOne({}).populate('idArray').then( (found) => {
         res.render('checkout.ejs', {
-            cart : found.idArray
+            cart : found.idArray,
         });
     });
 });

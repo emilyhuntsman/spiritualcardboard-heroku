@@ -10,6 +10,9 @@ Next:
     try storing array of objects with id, count; use to display with two buttons -/+; check first for existing 
 5. ask specifically which routes to use get, put, 
 delete etc when using mongoose methods
+    send in cart so it's working to render; need to be able to edit and delete... for CRUD
+    add, delete, update
+    index, show, new (send template), create, read, update, delete
 6. sketchpad, paint by numbers
 7. cart dropdown not working to move position
 

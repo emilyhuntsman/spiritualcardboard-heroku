@@ -34,7 +34,8 @@ router.get('/', (req,res) => {
         Cart.findOne({}).populate('idArray').then( (found) => {
             res.render('prints.ejs', {
                 cart : found.idArray,
-                prints : prts
+                prints : prts,
+                route : "_prints_"
             });
         });
     });
@@ -56,16 +57,17 @@ router.get('/new', (req,res) => {
 router.get('/:id/edit', (req,res) => {
     Print.findById(req.params.id, (err,pnt) => { 
         res.render('edit.ejs', {
-            print: pnt 
+            print: pnt,
         });
     });
 });
 
-router.get('/remove/:id/', (req,res) => {
+router.get('/remove/:id/:r1/', (req,res) => {
     Cart.findOneAndUpdate({},{$pull: { idArray : req.params.id}}, {new: true}, (err,cart) => {
-        res.redirect('/prints/');
+        res.redirect(req.params.r1.replace(/_/g,'/'));
     });
 });
+
 
 // show page
 router.get('/:id', (req,res) => {
@@ -74,6 +76,7 @@ router.get('/:id', (req,res) => {
             res.render("show.ejs", {
                 cart : found.idArray,
                 print : pnt,
+                route : "_prints_"+req.params.id
             });
         });
     });

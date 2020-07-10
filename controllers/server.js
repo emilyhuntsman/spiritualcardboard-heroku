@@ -25,11 +25,12 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
 db.on('connected', () => console.log('mongo connected: ', mongoURI))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
-// base routes
+// base route
 app.get('/', (req,res) => {
     Cart.findOne({}).populate('idArray').then( (found) => {
         res.render('index.ejs', {
             cart : found.idArray,
+            route: "_"
         });
     });
 });
@@ -38,6 +39,7 @@ app.get('/widgets', (req,res) => {
     Cart.findOne({}).populate('idArray').then( (found) => {
         res.render('sketch.ejs', {
             cart : found.idArray,
+            route: "_widgets"
         });
     });
 });
