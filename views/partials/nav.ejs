@@ -1,0 +1,31 @@
+<nav>
+    <ul class="nav nav-tabs nav-partial">
+        <li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="/prints/">PRINTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/widgets/">WIDGETS</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/spiritualcardboard/">INSTAGRAM</a></li>
+        <li class="dropdown ml-auto">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="cartButton" data-toggle="dropdown"><img src="/pics/cart.svg" id="cart-icon">cart</button>
+            <ul class="dropdown-menu cart-dropdown">
+                <% for (let i = 0; i < cart.length; i++) { %>
+                    <li class="item">
+                        <div class="cart-item">
+                            <div>
+                                <%=cart[i].name%>
+                            </div>
+                            <div class="item-info left">
+                                $<%=cart[i].price%>
+                            </div>
+                        </div>
+                        <div class='inline-block'>
+                            <button class="btn">x</button>
+                        </div>
+                    </li>
+                <% } %>
+                <div class="right">
+                    <button class="btn btn-secondary dropdown-item" type="button" id="cartCheckout" onclick="location.href='/cart/'">checkout</button>
+                </div>
+            </ul>
+        </li>
+    </ul>
+</nav>

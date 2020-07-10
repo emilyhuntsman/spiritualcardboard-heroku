@@ -77,9 +77,12 @@ router.get('/:id/buy', (req,res) => {
 
 // show page
 router.get('/:id', (req,res) => {
-    Print.findById(req.params.id, (err,pnt) => {
-        res.render("show.ejs", {
-            print : pnt,
+    Cart.findOne({}).populate('idArray').then( (found) => {
+        Print.findById(req.params.id, (err,pnt) => {
+            res.render("show.ejs", {
+                cart : found.idArray,
+                print : pnt,
+            });
         });
     });
 });

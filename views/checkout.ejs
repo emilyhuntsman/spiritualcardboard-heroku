@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>spiritualcardboard</title>
-    <!-- documentation sited: https://getbootstrap.com/docs/4.0/examples/checkout/ -->
+    <%- include ('./partials/head.ejs') %>
 </head>
-<body style="background-color: rgb(250, 250, 250);">
+<body>
     <nav>
-        <ul class="nav nav-tabs" style="padding-left: 10px">
+        <ul class="nav nav-tabs checkout-nav">
             <li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
             <li class="nav-item"><a class="nav-link" href="/prints/">PRINTS</a></li>
             <li class="nav-item"><a class="nav-link" href="/widgets/">WIDGETS</a></li>
             <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/spiritualcardboard/">INSTAGRAM</a></li>
-            <li class="ml-auto" style="width: 70px;"><img src="../pics/coLogo.png" id="co-logo" style="width: 100%;padding-top: 1px; padding-right: 25px"> 
+            <li class="ml-auto" style="width: 70px;"><img src="../pics/coLogo.png" id="co-logo"> 
             </li>
         </ul>
     </nav>
-    <div class="container-fluid" style="padding-left: 65px; padding-right: 65px;">
-        <div style="width: 100%; height: 70px;"></div>
-        <div class="col" style="padding-bottom: 15px;">
-                <h2 style="padding-bottom: 15px;">Checkout</h2>
+    <div class="container-fluid checkout-container">
+        <div class="padding"></div>
+        <div class="col checkout-bpadding">
+                <h2 class="checkout-bpadding">Checkout</h2>
                 <p>Thanks for visiting spiritualcardboard. If you would like to see more of my work, please visit @spiritualcardboard on Instagram. Thank you for your support!</p>
                 <div style="width: auto; height: 5px"></div>
                 <hr>
         </div>
-        <div class="col" style="padding-bottom: 10px;">
+        <div class="col checkout-bpadding">
             <div id="yourCart">
-                <h3 style="padding-bottom: 10px">Cart</h3>
+                <h3 class="checkout-bpadding" >Cart</h3>
                 <ul class="list-group">
                     <% for (let i = 0; i < cart.length; i++) { %>
                         <li class="list-group-item justify-content-between d-flex">
-                            <div class="col" style="padding-top: 25px">
+                            <div class="col checkout-tpadding">
                                 <h6><%=cart[i].name%></h6>
                                 <div class="text-muted">$<%=cart[i].price%></div>
                             </div>
-                            <div class="row">
-                                <img src="<%=cart[i].imgSrc%>" style="height: 110px; padding-right: 12px">
-                                <button type="button" class="close" style="padding-right: 7px" onclick="location.href='/cart/remove/<%=cart[i].id%>'">&times;</button>
+                            <div class="row checkout-img">
+                                <img src="<%=cart[i].imgSrc%>">
+                                <button type="button" class="close" onclick="location.href='/cart/remove/<%=cart[i].id%>'">&times;</button>
                             </div>
                         </li>
                     <% } %>
                     <li class="list-group-item justify-content-between d-flex">
-                        <div class="col" style="padding-top: 10px">
+                        <div class="col total-label">
                             <h6>Total (USD)</h6>
                         </div>
-                        <div style="padding-top: 10px; padding-right: 39px;"><strong>$<%=(15)*(cart.length)%></strong></div>
+                        <div class="total"><strong>$<%=(15)*(cart.length)%></strong></div>
                     </li>
                 </ul>
             </div>
@@ -56,12 +51,8 @@
             <button class="btn btn-outline-primary mt-4 mb-3 ml-3" onclick="location.href='/prints/'">back to prints</button>
             <button class="btn btn-outline-primary mt-4 mb-3 ml-3">proceed to payment</button>
         </div>
-        <hr style="margin-top: 40px;">
-        <div class="text-center" style="padding-top: 20px; padding-bottom: 20px">
-            <footer>
-                <p>Copyright © 2020, spiritualcardboard. Powered by Shopify.</p>
-            </footer>
-        </div>
+        <hr id="checkout-hr">
+        <%- include ('./partials/footer.ejs') %>
     </div>
 </body>
 </html>

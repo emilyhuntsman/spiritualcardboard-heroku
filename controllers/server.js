@@ -6,6 +6,7 @@ const printController = require('./printController.js');
 const cartController = require('./cartController.js');
 const app = express();
 const port = process.env.PORT || 3000;
+const Cart = require('../models/cart.js');
 
 // middleware
 app.use(express.static("public"));
@@ -26,7 +27,11 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 // base routes
 app.get('/', (req,res) => {
-    res.render('index.ejs');
+    Cart.findOne({}).populate('idArray').then( (found) => {
+        res.render('index.ejs', {
+            cart : found.idArray,
+        });
+    });
 });
 
 app.get('/widgets', (req,res) => {

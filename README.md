@@ -17,3 +17,8 @@ partials for nav, header, footer etc
 fix width of dropdown
 add price
 make checkout look clickable on hover :)
+
+need to reload page when the x is clicked, make new delete route there? since the other delete route redirects to the cart...
+
+link css in partials
+do edit, index, new, prints, showm, sketch
