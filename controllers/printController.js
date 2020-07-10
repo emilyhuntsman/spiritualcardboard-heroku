@@ -61,18 +61,10 @@ router.get('/:id/edit', (req,res) => {
     });
 });
 
-// buy button
-router.get('/:id/buy', (req,res) => {
-    res.send("will buy: ");
-    // Product.findByIdAndUpdate(req.params.id, {$inc: {qty: -1}}, {new:true}, (err,updated) => {
-    //     User.findOneAndUpdate({username: "user1"}, {$push: {"shopping_cart": updated}}, {new:true}, (err,pushed) => {
-    //         console.log("inside cart ",pushed.shopping_cart);
-    //     });
-    // });
-    // User.findOne({username: "user1"}, (err, found) => {
-    //     console.log("cart ",found.shopping_cart);
-    // }); 
-    // res.redirect('/products/'+req.params.id);
+router.get('/remove/:id/', (req,res) => {
+    Cart.findOneAndUpdate({},{$pull: { idArray : req.params.id}}, {new: true}, (err,cart) => {
+        res.redirect('/prints/');
+    });
 });
 
 // show page

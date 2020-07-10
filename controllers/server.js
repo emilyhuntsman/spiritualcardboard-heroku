@@ -35,7 +35,11 @@ app.get('/', (req,res) => {
 });
 
 app.get('/widgets', (req,res) => {
-    res.render('sketch.ejs');
+    Cart.findOne({}).populate('idArray').then( (found) => {
+        res.render('sketch.ejs', {
+            cart : found.idArray,
+        });
+    });
 });
 
 // listening on 3000

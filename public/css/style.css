@@ -31,9 +31,11 @@ body {
     width: 23%;
 }
 
+/* not working... */
 .cart-dropdown {
     width: 320px; 
-    transform: translate3d(-255px, 35px, 0px);
+    transform: translate3d(-205px, 0px, 0px);
+    top: 53px;
 }
 
 .cart-dropdown .item {
@@ -172,4 +174,12 @@ div.padding-sm {
 
 .row .col {
     padding: 0px;
+}
+
+.nav-img {
+    width: 50px;
+}
+
+.nav-div {
+    transform: translate(0px,8px);
 }

@@ -17,9 +17,9 @@
                                 $<%=cart[i].price%>
                             </div>
                         </div>
-                        <div class='inline-block' style="transform: translate(0px,8px);">
-                            <img style="width: 50px"src="<%=cart[i].imgSrc%>"> 
-                            <button class="btn btn-light">x</button>
+                        <div class='inline-block nav-div'>
+                            <img class="nav-img" src="<%=cart[i].imgSrc%>"> 
+                            <button class="btn btn-light" onclick="location.href='/prints/remove/<%=cart[i].id%>'">x</button>
                         </div>
                     </li>
                 <% } %>
