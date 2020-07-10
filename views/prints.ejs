@@ -5,29 +5,29 @@
 </head>
 <body>
     <%- include ('./partials/nav.ejs') %>
-    <div class="container-fluid" style="padding-left: 75px; padding-right: 75px;">
-        <div style="width: 100%; height: 30px;"></div>
+    <div class="container-fluid prints-container">
+        <div class="padding-sm"></div>
         <div id="description">
             <h2>Prints</h2>
             <p>All prints are 4x4 inches printed on quality matte paper. I like the homemade feeling of the original drawings, so some images include textures and shadows, as they appear in the photos.</p>
         </div>
         <div class="row" id="r1">
-            <div style="width: 100%; padding-top: 20px;">
-                <img src="../pics/top.jpeg" style="width: 100%; padding-bottom: 15px"/>
+            <div class="spiritual-div ">
+                <img src="../pics/top.jpeg" id="prints-top"/>
             </div>  
         </div>
         <% for (let i = 0; i< prints.length; i++) { %>
             <% if (i%3==0) { %>
                 <div class="row">
             <% } %>
-            <div class="col" style="padding: 0">
-                <img src="<%=prints[i].imgSrc%>" style="width: 100%; height: 100%" onclick="location.href = '/prints/<%=prints[i].id%>'">
+            <div class="col">
+                <img class="full-w-h" src="<%=prints[i].imgSrc%>" onclick="location.href = '/prints/<%=prints[i].id%>'">
             </div>
             <% if (i%3==2) { %>
                 </div>
             <% } %>
         <% } %>
-        <div style="padding-bottom: 20px"></div>
+        <div class="prints-bpadding"></div>
         <hr>
         <%- include ('./partials/footer.ejs') %>
     </div>

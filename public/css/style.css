@@ -2,6 +2,10 @@ body {
     background-color: rgb(250, 250, 250);
 }
 
+.body-pad {
+    padding: 30px;
+}
+
 .footer-div {
     padding-top: 20px;
     padding-bottom: 20px
@@ -28,8 +32,8 @@ body {
 }
 
 .cart-dropdown {
-    min-width: 250px; 
-    transform: translate3d(-135px, 38px, 0px);
+    width: 320px; 
+    transform: translate3d(-255px, 35px, 0px);
 }
 
 .cart-dropdown .item {
@@ -59,12 +63,12 @@ div.cart-item {
 }
 
 #co-logo {
-    width: 100%;
+    width: 70px;
     padding-top: 1px; 
     padding-right: 25px;
 }
 
-.checkout-container {
+.checkout-container, .index-container, .show-container, .sketch-container, .prints-container {
     padding-left: 65px;
     padding-right: 65px;
 }
@@ -74,7 +78,12 @@ div.padding {
     height: 70px;
 }
 
-.checkout-bpadding, .checkout-bpadding h2 {
+div.padding-sm {
+    width: 100%;
+    height: 30px;
+}
+
+.checkout-bpadding, .checkout-bpadding h2,  .index-bpadding, .show-container, .sketch-container .prints-bpadding {
     padding-bottom: 15px;
 }
 
@@ -102,4 +111,65 @@ div.padding {
 
 #checkout-hr {
     margin-top: 40px;
+}
+
+.header-lpadding {
+    padding-left: 20px;
+}
+
+#index-logo {
+    width: 70%;
+    padding-bottom: 30px;
+}
+
+.auto-width {
+    width: auto;
+    height: 30px;
+}
+
+#about {
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.insta-feed {
+    height: 875px;
+    overflow: auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.show-img {
+    width: 45%;
+    padding-bottom: 15px;
+}
+
+.normal-font {
+    font-weight: normal;
+}
+
+#prints-top {
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.full-w-h {
+    width: 100%;
+    height: 100%;
+}
+
+.auto-w-pad {
+    width: auto;
+    height: 5px;
+}
+
+.spiritual-div {
+    height: auto;
+    width: 100%;
+}
+
+.row .col {
+    padding: 0px;
 }

@@ -17,13 +17,18 @@
                                 $<%=cart[i].price%>
                             </div>
                         </div>
-                        <div class='inline-block'>
-                            <button class="btn">x</button>
+                        <div class='inline-block' style="transform: translate(0px,8px);">
+                            <img style="width: 50px"src="<%=cart[i].imgSrc%>"> 
+                            <button class="btn btn-light">x</button>
                         </div>
                     </li>
                 <% } %>
+                <hr>
+                <div class="left" style="display: inline-block; padding-left: 10px; font-weight: bold">
+                    total: $<%=(cart.length)*15%>
+                </div>
                 <div class="right">
-                    <button class="btn btn-secondary dropdown-item" type="button" id="cartCheckout" onclick="location.href='/cart/'">checkout</button>
+                    <button class="btn btn-secondary dropdown-item" type="button" id="cartCheckout" style="transform: translate(0px,-3px);" onclick="location.href='/cart/'">checkout</button>
                 </div>
             </ul>
         </li>

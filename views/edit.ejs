@@ -3,9 +3,9 @@
     <head>
         <%- include ('./partials/head.ejs') %>
     </head>
-    <body style="padding: 30px">
+    <body class="body-pad">
         <%- include ('./partials/nav.ejs') %>
-        <h1 style="padding-left: 20px;">Edit Print Page</h1>
+        <h1 class="header-lpadding">Edit Print Page</h1>
         <form action="/prints/<%=print.id%>?_method=PUT" method="POST">
             <label for="name">Name:</label><br><input type="text" name="name" value="<%=print.name%>"/><br/>
             <label for="price">Price:</label><br><input name="price"value="<%=print.price%>"></input><br>
