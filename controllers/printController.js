@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Print = require('../models/print.js');
 const Cart = require('../models/cart.js');
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
 
 //////////////////////////////////////////////////////////////////////////////////
 // routes
@@ -50,15 +52,22 @@ router.post('/', (req,res) => {
 
 // new product details
 router.get('/new', (req,res) => {
-    res.render("new.ejs");
+    Cart.findOne({}).populate('idArray').then( (found) => {
+        res.render('new.ejs', {
+            cart : found.idArray,
+        });
+    });
 });
 
 // edit
 router.get('/:id/edit', (req,res) => {
-    Print.findById(req.params.id, (err,pnt) => { 
-        res.render('edit.ejs', {
-            print: pnt,
-        });
+    Print.findById(req.params.id, (err,pnt) => {
+        Cart.findOne({}).populate('idArray').then( (found) => {
+            res.render('edit.ejs', {
+                print: pnt,
+                cart : found.idArray,
+            });
+        }); 
     });
 });
 
@@ -85,6 +94,7 @@ router.get('/:id', (req,res) => {
 // update from edit page
 router.put('/:id', (req,res) => {
     Print.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,updated) => {
+        console.log('updated ',updated);
         res.redirect('/prints/'+req.params.id);
     });
 });

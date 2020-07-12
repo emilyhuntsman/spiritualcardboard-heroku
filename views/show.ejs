@@ -16,6 +16,12 @@
         </div>
     </div>
     <hr>
+    <div id="admin" class="text-center">
+        <a id="edit-print" class="inline-block" href="/prints/<%=print.id%>/edit">edit print</a>
+        <form action="/prints/<%=print.id; %>?_method=DELETE" method="POST" style="display: inline-block">
+            <input type="submit" value="delete print" style="border:none; background:none; color:lightgray"/>
+        </form>
+    <div>
     <%- include ('./partials/footer.ejs') %>
     <%- include ('./partials/scripts.ejs') %>
 </body>

@@ -5,13 +5,17 @@
     </head>
     <body class="body-pad">
         <%- include ('./partials/nav.ejs') %>
+        <div class="padding-sm"></div>
         <h1 class="header-lpadding">New Print Details</h1>
-        <form action="/prints" method="POST">
+        <div class="padding-sm"></div>
+        <form action="/prints/" method="POST">
             Name: <input type="text" name="name" /><br/>
             Price: <input type="text" name="price" /><br/>
             File Name w Extension: <input type="text" name="imgSrc" /><br/>
             <input type="submit" name="" value="Add Print"/>
         </form>
+        <div class="padding-sm"></div>
+        <hr>
         <%- include ('./partials/footer.ejs') %>
     </body>
 </html>

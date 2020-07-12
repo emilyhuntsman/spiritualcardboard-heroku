@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include ('./partials/nav.ejs') %>
+    <div class="container-fluid sketch-container">
+        <div class="padding-sm"></div>
+        <div id="canvas-container">
+            <h3>Spiritual Sketchpad</h3>
+            <canvas class="full-width" id="sketchpad"></canvas>
+        </div>
+        <div id="drawing-controls">
+            <div class="right">
+                <div id="line-color">
+                    <input type="color" oninput="sdb.setLineColor(this.value)">
+                </div>
+                <div id="line-size">
+                    <input type="range" value="1" min="1" max="8" oninput="sdb.setLineSize(this.value)">
+                </div>
+                <div id="undo-redo">
+                    <button onclick="sdb.undo()">undo</button>
+                    <button onclick="sdb.redo()">redo</button>
+                </div>
+            </div>
+        </div>
+        <script src="/simple-drawing-board.js"></script>
+        <script>
+            window.sdb = window.SimpleDrawingBoard.create(document.getElementById("sketchpad"));
+        </script>
+    </div>
+    <hr>
+    <div class="container-fluid caption-container">
+        <div class="row index-bpadding">
+            <div class="col-sm text-center">
+                <h3>cardboard captions:</h3>
+                <div class="padding-sm"></div>
+                <form id="caption-form">
+                    <!-- <label for="exampleInputPassword1">Password</label> -->
+                        <input type="text" class="form-control" id="user-caption">
+                        <button type="submit" class="btn btn-primary">submit</button>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+                        <script>
+                            $( "#caption-form").on("submit", (event) => {
+                                console.log("interesting..");
+                            });
+                        </script>
+                </form>
+            </div>
+            <div class="col-sm">
+                <img class="full-width caption-img" src="/pics/name.jpg"/>
+            </div>
+        </div>
+        <!-- <div style="width:30%; display: inline-block; top: 0px">
+            <h3>caption this:</h3>
+        </div>
+        <div style="width: 65%; display: inline-block;">
+            <img class="right" src="/pics/name.jpg" style="width:80%">
+        </div> -->
+    </div>
+    <hr>
+    <%- include ('./partials/footer.ejs') %>
+    <%- include ('./partials/scripts.ejs') %>
+</body>
+</html>
