@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const Cart = require('../models/cart.js');
 const bodyParser = require("body-parser");
+const { $where } = require('../models/cart.js');
 
 // middleware
 app.use(express.static("public"));

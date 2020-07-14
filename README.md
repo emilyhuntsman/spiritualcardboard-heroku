@@ -6,7 +6,8 @@ Next:
 3. pushing x currently deletes all copies
 4. adding multiple should update quantity NOT add a second; want to decrement quant and if now zero, delete
     try storing array of objects with id, count; use to display with two buttons -/+; check first for existing ;  - 1 +
+
+Priorities:
 5. fix problem with formatting on delete
-6. sketchpad, paint by numbers, caption contest
+6. sketchpad, paint by numbers, caption contest (query button to add caption div)
 CC: tetextbox for input, submit reloads the page with inserted text
-SK: undo, chose drawing color, start over

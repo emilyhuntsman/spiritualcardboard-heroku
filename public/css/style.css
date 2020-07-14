@@ -226,8 +226,23 @@ div.padding-sm {
 
 #caption-form {
     padding: 8px;
+    padding-top: 18px;
 }
 
 #caption-form input {
     margin-bottom: 10px;
+}
+
+.caption {
+    font-weight: normal;
+    font-size: 50%;
+    transform: translate(25px,-230px);
+}
+
+#form-div h3 {
+    padding-left: 10px;
+}
+
+#form-div button {
+    margin-left: 10px;
 }

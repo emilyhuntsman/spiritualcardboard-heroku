@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include ('./partials/head.ejs') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 </head>
 <body>
     <%- include ('./partials/nav.ejs') %>
@@ -33,34 +34,27 @@
     <hr>
     <div class="container-fluid caption-container">
         <div class="row index-bpadding">
-            <div class="col-sm text-center">
-                <h3>cardboard captions:</h3>
-                <div class="padding-sm"></div>
+            <div class="col-sm left" id="form-div">
+                <h3>Cardboard Captions:</h3>
                 <form id="caption-form">
-                    <!-- <label for="exampleInputPassword1">Password</label> -->
-                        <input type="text" class="form-control" id="user-caption">
-                        <button type="submit" class="btn btn-primary">submit</button>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-                        <script>
-                            $( "#caption-form").on("submit", (event) => {
-                                console.log("interesting..");
-                            });
-                        </script>
+                    <input type="text" class="form-control" id="user-caption">
                 </form>
+                <button type="text" class="btn btn-primary" onclick="addCaption()">submit</button>
             </div>
-            <div class="col-sm">
+            <div class="col-sm" id="spiritual-cartoon">
                 <img class="full-width caption-img" src="/pics/name.jpg"/>
+                <div id="caption-div"></div>
             </div>
         </div>
-        <!-- <div style="width:30%; display: inline-block; top: 0px">
-            <h3>caption this:</h3>
-        </div>
-        <div style="width: 65%; display: inline-block;">
-            <img class="right" src="/pics/name.jpg" style="width:80%">
-        </div> -->
     </div>
     <hr>
     <%- include ('./partials/footer.ejs') %>
     <%- include ('./partials/scripts.ejs') %>
+    <script>
+        const addCaption = () => {
+            $('#caption-div').empty().append($('<h6>').text($('#user-caption').val()).attr("class","caption"));
+            $('#user-caption').val("");
+        }
+    </script>
 </body>
 </html>
