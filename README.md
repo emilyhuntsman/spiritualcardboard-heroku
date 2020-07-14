@@ -10,4 +10,4 @@ Next:
 Priorities:
 5. fix problem with formatting on delete
 6. sketchpad, paint by numbers, caption contest (query button to add caption div)
-CC: tetextbox for input, submit reloads the page with inserted text
+7. fix where the queried div gets transformed to based on percentages of element
