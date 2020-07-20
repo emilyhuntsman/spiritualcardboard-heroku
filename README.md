@@ -3,8 +3,7 @@
 ### Intro and User Stories
 My best friend Tommy has been drawing for years, and in the past few he's made an instagram account for his work, @spiritualcardboard which has been continuously gaining followers. He's constantly receiving DMs from people hoping to buy one of his prints, so he set up a basic shopify account. I love him to death but the site was a ruddy green which made its dark text hard to read, poorly aligned, and not optimized for the user experience (including a screenshot below). I decided to take a crack at remaking it, adding my code to the pre-existing shopify site.
 
-<img src="/public/pics/old_site.png" width="200"/>  ->  
-<img src="/public/pics/new_site.png" width="200"/>
+<img src="/public/pics/old_site.png" width="200" />  ->  <img src="/public/pics/new_site.png" width="200"/>
 
 Next:
 2. also how to not close window on click of remove button
